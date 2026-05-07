@@ -1,0 +1,21 @@
+@import "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-zinc-100 antialiased;
+  }
+}
+
+.studio-card {
+  @apply bg-zinc-900 border border-zinc-800/50 shadow-2xl rounded-[2.5rem] transition-all duration-500;
+}
+
+.studio-input {
+  @apply bg-zinc-800/50 border border-zinc-700/50 rounded-2xl px-6 py-5 text-white placeholder-zinc-500 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500/50 transition-all;
+}

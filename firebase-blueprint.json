@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Order": {
+      "title": "Order",
+      "description": "A customer order for studio services",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "serviceType": { "type": "string", "enum": ["B&W Photocopy", "Passport Photo Printing", "Online Application"] },
+        "documentUrl": { "type": "string", "description": "Base64 or URL of the uploaded document" },
+        "status": { "type": "string", "enum": ["pending", "working", "completed"], "description": "Current status of the job" },
+        "trackingId": { "type": "string", "description": "Unique short tracking code for customer" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "phoneNumber", "serviceType", "status", "trackingId", "createdAt"]
+    },
+    "Setting": {
+      "title": "Setting",
+      "description": "Global application settings and administrative info",
+      "type": "object",
+      "properties": {
+        "emergencyNotice": { "type": "string" },
+        "adminPassword": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "orders": {
+      "schema": "Order",
+      "description": "Collection of all customer orders"
+    },
+    "settings": {
+      "schema": "Setting",
+      "description": "Global settings and notice information"
+    }
+  }
+}
